@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juragan Motor Castum Kece Tioio</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0a0a0a;
+    color: #f0e6c8;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a00 40%, #2a1200 70%, #0a0a0a 100%);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 800px 400px at 50% 50%, rgba(255,140,0,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 200px at 20% 80%, rgba(255,80,0,0.05) 0%, transparent 60%);
+  }
+
+  .deco-lines {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .deco-lines span {
+    position: absolute;
+    display: block;
+    background: linear-gradient(90deg, transparent, rgba(255,140,0,0.15), transparent);
+    height: 1px;
+    width: 100%;
+    animation: scan 6s linear infinite;
+  }
+  .deco-lines span:nth-child(1) { top: 20%; animation-delay: 0s; }
+  .deco-lines span:nth-child(2) { top: 50%; animation-delay: 2s; }
+  .deco-lines span:nth-child(3) { top: 80%; animation-delay: 4s; }
+
+  @keyframes scan {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .corner {
+    position: absolute;
+    width: 60px; height: 60px;
+    border-color: rgba(255,140,0,0.4);
+    border-style: solid;
+  }
+  .corner-tl { top: 24px; left: 24px;  border-width: 2px 0 0 2px; }
+  .corner-tr { top: 24px; right: 24px; border-width: 2px 2px 0 0; }
+  .corner-bl { bottom: 24px; left: 24px;  border-width: 0 0 2px 2px; }
+  .corner-br { bottom: 24px; right: 24px; border-width: 0 2px 2px 0; }
+
+  .welcome-tag {
+    position: relative;
+    z-index: 2;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: #ff8c00;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+
+  .hero-title {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    line-height: 1.1;
+  }
+  .hero-title .line1 {
+    font-size: clamp(13px, 3vw, 18px);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: #c8a060;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .hero-title .line2 {
+    font-size: clamp(36px, 8vw, 72px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, #ff8c00 0%, #ffcc44 40%, #ff6600 80%, #ff8c00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    filter: drop-shadow(0 0 30px rgba(255,140,0,0.4));
+  }
+  .hero-title .line3 {
+    font-size: clamp(28px, 6vw, 52px);
+    font-weight: 800;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: #f0e6c8;
+    display: block;
+    margin-top: 4px;
+  }
+  .hero-title .line4 {
+    font-size: clamp(18px, 4vw, 32px);
+    font-weight: 700;
+    letter-spacing: 16px;
+    text-transform: uppercase;
+    color: #ff8c00;
+    display: block;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  .divider {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 28px 0;
+    width: min(500px, 90%);
+  }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #ff8c00, transparent); }
+  .divider-diamond { width: 10px; height: 10px; background: #ff8c00; transform: rotate(45deg); flex-shrink: 0; }
+
+  .hero-sub {
+    position: relative;
+    z-index: 2;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: #c8a060;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,140,0,0.6);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  .scroll-arrow { font-size: 20px; }
+
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(8px); }
+  }
+
+  .badge {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff8c00, #cc6600);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    background: rgba(10,10,10,0.97);
+    border-bottom: 1px solid rgba(255,140,0,0.2);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, #ff8c00, #ffcc44);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    color: #c8a060;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: #ff8c00; }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 80px 40px; }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #ff8c00;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #f0e6c8;
+    margin-bottom: 16px;
+  }
+  .section-title span {
+    background: linear-gradient(90deg, #ff8c00, #ffcc44);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ===== GALLERY ===== */
+  .gallery-section { background: #0d0d0d; }
+
+  .gallery-header { text-align: center; margin-bottom: 48px; }
+
+  .gallery-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 16px auto 0;
+    max-width: 300px;
+  }
+  .gallery-divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,140,0,0.5), transparent); }
+  .gallery-divider-dot { width: 6px; height: 6px; background: #ff8c00; border-radius: 50%; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .gallery-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    cursor: pointer;
+    background: #111;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: sepia(20%) contrast(1.1);
+  }
+  .gallery-item:hover img { transform: scale(1.08); filter: sepia(0%) contrast(1.1); }
+
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+  .g-title { font-size: 16px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #ffcc44; }
+  .g-sub   { font-size: 12px; color: #c8a060; letter-spacing: 1px; margin-top: 4px; }
+
+  .gallery-item.large { grid-column: span 2; }
+
+  /* ===== SPECS ===== */
+  .specs-section { max-width: 1200px; margin: 0 auto; }
+
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .spec-card {
+    border: 1px solid rgba(255,140,0,0.15);
+    padding: 28px 24px;
+    position: relative;
+    background: rgba(255,140,0,0.02);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .spec-card:hover {
+    border-color: rgba(255,140,0,0.4);
+    background: rgba(255,140,0,0.05);
+  }
+  .spec-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 30px; height: 2px;
+    background: #ff8c00;
+  }
+  .spec-icon  { font-size: 24px; margin-bottom: 12px; }
+  .spec-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #664400; margin-bottom: 8px; }
+  .spec-value { font-size: 22px; font-weight: 800; color: #ffcc44; }
+  .spec-unit  { font-size: 12px; color: #c8a060; margin-top: 4px; }
+
+  /* ===== ABOUT ===== */
+  .about-section {
+    background: #0d0d0d;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-section::before {
+    content: 'RXKING';
+    position: absolute;
+    font-size: 180px;
+    font-weight: 900;
+    color: rgba(255,140,0,0.03);
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    letter-spacing: -10px;
+    pointer-events: none;
+  }
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .about-text p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #a08060;
+    margin-bottom: 16px;
+  }
+  .about-text p strong { color: #ffcc44; font-weight: 700; }
+
+  .about-img { position: relative; }
+  .about-img img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    filter: sepia(15%) contrast(1.1);
+  }
+  .about-img::after {
+    content: '';
+    position: absolute;
+    inset: 12px -12px -12px 12px;
+    border: 1px solid rgba(255,140,0,0.25);
+    z-index: -1;
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .tag {
+    border: 1px solid rgba(255,140,0,0.3);
+    color: #c8a060;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #050505;
+    border-top: 1px solid rgba(255,140,0,0.15);
+    padding: 40px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff8c00, #ffcc44, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+  }
+  .footer-sub   { font-size: 11px; letter-spacing: 4px; color: #664400; text-transform: uppercase; margin-bottom: 24px; }
+  .footer-divider { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, #ff8c00, transparent); margin: 0 auto 24px; }
+  .footer-copy  { font-size: 11px; color: #443322; letter-spacing: 2px; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    section { padding: 60px 20px; }
+    .about-inner { grid-template-columns: 1fr; gap: 32px; }
+    .gallery-item.large { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ======== HERO ======== -->
+<section class="hero" id="home">
+  <div class="deco-lines"><span></span><span></span><span></span></div>
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+
+  <div class="welcome-tag">&#9670; Selamat Datang Di Website Saya &#9670;</div>
+  <div class="badge">Est. Raja Jalanan</div>
+
+  <div class="hero-title">
+    <span class="line1">Juragan Motor</span>
+    <span class="line2">CASTUM KECE</span>
+    <span class="line3">TIOIO</span>
+    <span class="line4">RX King</span>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-diamond"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="hero-sub">Motor Legendaris &middot; Kece Abis &middot; Full Custom</div>
+
+  <div class="scroll-hint">
+    <span class="scroll-arrow">&#8964;</span>
+    Scroll
+  </div>
+</section>
+
+<!-- ======== NAV ======== -->
+<nav>
+  <div class="nav-logo">TIOIO</div>
+  <div class="nav-links">
+    <a href="#gallery">Galeri</a>
+    <a href="#specs">Spesifikasi</a>
+    <a href="#about">Tentang</a>
+  </div>
+</nav>
+
+<!-- ======== GALLERY ======== -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-header">
+    <div class="section-label">&#9670; Koleksi Eksklusif &#9670;</div>
+    <h2 class="section-title">Galeri <span>RX King</span></h2>
+    <div class="gallery-divider">
+      <div class="gallery-divider-line"></div>
+      <div class="gallery-divider-dot"></div>
+      <div class="gallery-divider-line"></div>
+    </div>
+  </div>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-item large">
+      <img src="rxking ori.jpg"
+           alt="Yamaha RX King Klasik"
+           onerror="this.parentElement.style.background='linear-gradient(135deg,#1a0800,#2a1200)'">
+      <div class="gallery-overlay">
+        <div><div class="g-title">RX King Original</div><div class="g-sub">Legenda Jalanan Indonesia</div></div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="motor rx king3.png"
+           alt="RX King Cobra"
+           onerror="this.parentElement.style.background='linear-gradient(135deg,#120800,#241000)'">
+      <div class="gallery-overlay">
+        <div><div class="g-title">RX King Cobra</div><div class="g-sub">Versi 200cc Spesial</div></div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="rxking 2024.jpg"
+           alt="RX King 2024"
+           onerror="this.parentElement.style.background='linear-gradient(135deg,#0a0800,#1a1200)'">
+      <div class="gallery-overlay">
+        <div><div class="g-title">RX King 2004</div><div class="g-sub">Model Akhir Produksi</div></div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="rxking fu.jpg"
+           alt="RX King Modif"
+           onerror="this.parentElement.style.background='linear-gradient(135deg,#100800,#201000)'">
+      <div class="gallery-overlay">
+        <div><div class="g-title">RX King Full Modif</div><div class="g-sub">Custom Castum Kece</div></div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="rxkingkostum.jpg"
+           alt="RX King Custom"
+           onerror="this.parentElement.style.background='linear-gradient(135deg,#0d0800,#1d1000)'">
+      <div class="gallery-overlay">
+        <div><div class="g-title">RX King Custom Build</div><div class="g-sub">Garapan Tangan Sendiri</div></div>
+      </div>
+    </div>
+
+    <div class="gallery-item" style="background:linear-gradient(135deg,#120800,#2a1200);">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="38" stroke="rgba(255,140,0,0.3)" stroke-width="1"/>
+          <circle cx="40" cy="40" r="28" stroke="rgba(255,140,0,0.2)" stroke-width="1"/>
+          <path d="M15 48 Q25 30 40 28 Q55 26 62 38 L65 44" stroke="#ff8c00" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="22" cy="48" r="7" stroke="#ff8c00" stroke-width="1.5" fill="none"/>
+          <circle cx="58" cy="48" r="7" stroke="#ff8c00" stroke-width="1.5" fill="none"/>
+          <path d="M22 42 L22 34 L35 30 L42 34 L50 30 L58 34" stroke="rgba(255,200,0,0.6)" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+        </svg>
+        <span style="color:#ff8c00;font-size:11px;letter-spacing:3px;text-transform:uppercase;">RX King Racing</span>
+      </div>
+      <div class="gallery-overlay" style="opacity:1;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,transparent 60%);">
+        <div><div class="g-title">Street Racing Style</div><div class="g-sub">Spirit Sang Legenda</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======== SPECS ======== -->
+<section id="specs">
+  <div class="specs-section">
+    <div class="section-label">&#9670; Data Teknis &#9670;</div>
+    <h2 class="section-title">Spesifikasi <span>Legendaris</span></h2>
+    <div class="specs-grid">
+      <div class="spec-card">
+        <div class="spec-icon">&#9881;</div>
+        <div class="spec-label">Mesin</div>
+        <div class="spec-value">135cc</div>
+        <div class="spec-unit">2-Tak Single Cylinder</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon">&#9889;</div>
+        <div class="spec-label">Tenaga</div>
+        <div class="spec-value">16 HP</div>
+        <div class="spec-unit">@ 8.000 RPM</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon">&#128262;</div>
+        <div class="spec-label">Top Speed</div>
+        <div class="spec-value">110+</div>
+        <div class="spec-unit">km/jam</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon">&#9881;</div>
+        <div class="spec-label">Transmisi</div>
+        <div class="spec-value">6 Speed</div>
+        <div class="spec-unit">Manual Foot Shift</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon">&#9875;</div>
+        <div class="spec-label">Bahan Bakar</div>
+        <div class="spec-value">10L</div>
+        <div class="spec-unit">Kapasitas Tangki</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon">&#9878;</div>
+        <div class="spec-label">Produksi</div>
+        <div class="spec-value">1983</div>
+        <div class="spec-unit">Hingga 2009</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== ABOUT ======== -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <div class="section-label">&#9670; Tentang Kami &#9670;</div>
+      <h2 class="section-title" style="margin-bottom:24px;">Juragan <span>Tioio</span></h2>
+      <p><strong>Juragan Motor Castum Kece Tioio</strong> adalah rumah bagi para pecinta RX King sejati. Kami menghadirkan koleksi terbaik motor legendaris yang pernah merajai jalanan Indonesia.</p>
+      <p>RX King bukan sekadar motor &mdash; ia adalah <strong>simbol kebebasan</strong>, suara 2-tak yang memekakkan, dan kenangan yang tak terlupakan di setiap jalanan yang pernah dilalui.</p>
+      <p>Dari <strong>full custom</strong> hingga restorasi original, kami siap melayani para juragan yang ingin tampil beda, kece, dan tetap berjiwa raja jalanan.</p>
+      <div class="tags">
+        <span class="tag">Full Custom</span>
+        <span class="tag">Restorasi</span>
+        <span class="tag">Spare Part</span>
+        <span class="tag">RX King</span>
+        <span class="tag">Motor Klasik</span>
+        <span class="tag">2-Tak</span>
+      </div>
+    </div>
+    <div class="about-img">
+      <img src="kng.jpg"
+       alt="Yamaha RX King"
+           onerror="this.style.background='linear-gradient(135deg,#1a0800,#2a1200)';this.style.height='300px';this.style.display='block'">
+    </div>
+  </div>
+</section>
+ 
+<!-- ======== FOOTER ======== -->
+<footer>
+  <div class="footer-logo">Juragan Motor Castum Kece Tioio</div>
+  <div class="footer-sub">Raja Jalanan &mdash; RX King Forever</div>
+  <div class="footer-divider"></div>
+  <div class="footer-copy">&copy; 2025 Tioio Motor Custom &mdash; All Rights Reserved</div>
+</footer>
+ 
+</body>
+</html>

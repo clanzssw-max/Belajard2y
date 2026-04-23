@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Wulan Nathasya ✿</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink1: #ff6eb4;
+    --pink2: #ff9dd8;
+    --pink3: #ffd6ec;
+    --pink4: #fff0f8;
+    --pink5: #ff4fa0;
+    --accent: #ff85c2;
+    --white: #fff;
+    --text: #7a2d55;
+    --shadow: 0 8px 32px rgba(255,110,180,0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--pink4);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text y='26' font-size='26'>🌸</text></svg>") 16 16, auto;
+  }
+
+  /* ===== FLOATING DECORATIONS ===== */
+  .floaties {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .floaty {
+    position: absolute;
+    font-size: 1.6rem;
+    animation: floatUp linear infinite;
+    opacity: 0.55;
+  }
+
+  @keyframes floatUp {
+    0%   { transform: translateY(110vh) rotate(0deg) scale(0.8); opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.5; }
+    100% { transform: translateY(-10vh) rotate(360deg) scale(1.1); opacity: 0; }
+  }
+
+  /* ===== SLIDES CONTAINER ===== */
+  .slides-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(100%) scale(0.92);
+    transition: all 0.7s cubic-bezier(.77,0,.18,1);
+    pointer-events: none;
+  }
+
+  .slide.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: all;
+  }
+
+  .slide.exit-left {
+    opacity: 0;
+    transform: translateX(-100%) scale(0.92);
+  }
+
+  /* ===== SLIDE 1 - PROFIL ===== */
+  #slide1 { background: linear-gradient(135deg, #ffd6ec 0%, #ffb3d9 50%, #ff9dd8 100%); }
+
+  .profile-card {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(16px);
+    border-radius: 36px;
+    padding: 44px 52px;
+    max-width: 520px;
+    width: 90%;
+    box-shadow: 0 12px 48px rgba(255,80,160,0.22), 0 2px 8px rgba(255,110,180,0.1);
+    border: 3px solid rgba(255,160,210,0.5);
+    text-align: center;
+    position: relative;
+    animation: popIn 0.8s cubic-bezier(.17,.67,.4,1.4) both;
+  }
+
+  @keyframes popIn {
+    0% { transform: scale(0.5) rotate(-4deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  .girl-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  /* ===== CUTE CARTOON GIRL SVG ===== */
+  .girl-svg {
+    width: 130px;
+    height: 160px;
+    animation: girlBounce 2.4s ease-in-out infinite;
+    filter: drop-shadow(0 8px 16px rgba(255,80,160,0.22));
+  }
+
+  @keyframes girlBounce {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+  }
+
+  .sparkle-ring {
+    position: absolute;
+    top: -14px; left: -14px; right: -14px; bottom: -14px;
+    border-radius: 50%;
+    animation: spinRing 6s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes spinRing {
+    to { transform: rotate(360deg); }
+  }
+
+  .profile-card h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    color: var(--pink5);
+    text-shadow: 2px 3px 0 rgba(255,80,160,0.15);
+    margin: 8px 0 4px;
+    letter-spacing: 1px;
+  }
+
+  .star-deco {
+    color: var(--pink1);
+    font-size: 1.2rem;
+    letter-spacing: 6px;
+    display: block;
+    margin-bottom: 10px;
+    animation: twinkle 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    from { opacity: 0.6; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1.08); }
+  }
+
+  .info-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(90deg, rgba(255,183,219,0.4), rgba(255,220,240,0.2));
+    border-radius: 20px;
+    padding: 10px 18px;
+    margin: 8px 0;
+    border: 1.5px solid rgba(255,140,200,0.3);
+    text-align: left;
+    transition: transform 0.2s;
+  }
+
+  .info-row:hover { transform: scale(1.03) translateX(4px); }
+
+  .info-icon { font-size: 1.4rem; }
+
+  .info-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--pink5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .info-value {
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .flower-badge {
+    position: absolute;
+    top: -18px; right: -18px;
+    font-size: 2.6rem;
+    animation: spinBadge 4s linear infinite;
+    filter: drop-shadow(0 2px 6px rgba(255,80,160,0.3));
+  }
+
+  @keyframes spinBadge {
+    0%, 100% { transform: rotate(-8deg) scale(1); }
+    50% { transform: rotate(8deg) scale(1.1); }
+  }
+
+  /* ===== SLIDE 2 - HOBI ===== */
+  #slide2 { background: linear-gradient(135deg, #ffe0f0 0%, #ffd6ec 50%, #ffc0e0 100%); }
+
+  .hobi-container {
+    max-width: 680px;
+    width: 93%;
+    text-align: center;
+    animation: popIn 0.8s cubic-bezier(.17,.67,.4,1.4) both;
+  }
+
+  .hobi-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: var(--pink5);
+    text-shadow: 2px 3px 0 rgba(255,80,160,0.13);
+    margin-bottom: 6px;
+  }
+
+  .hobi-subtitle {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 22px;
+  }
+
+  .hobi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .hobi-card {
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(12px);
+    border-radius: 28px;
+    padding: 22px 18px;
+    border: 2.5px solid rgba(255,140,200,0.4);
+    box-shadow: 0 6px 24px rgba(255,80,160,0.12);
+    transition: all 0.3s cubic-bezier(.17,.67,.4,1.4);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hobi-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 100px; height: 100px;
+    background: radial-gradient(circle, rgba(255,160,210,0.25), transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hobi-card:hover {
+    transform: translateY(-8px) scale(1.04) rotate(-1deg);
+    box-shadow: 0 16px 40px rgba(255,80,160,0.22);
+    border-color: var(--pink1);
+  }
+
+  .hobi-emoji {
+    font-size: 2.8rem;
+    display: block;
+    margin-bottom: 10px;
+    animation: hobbySpin 3s ease-in-out infinite;
+  }
+
+  .hobi-card:nth-child(1) .hobi-emoji { animation-delay: 0s; }
+  .hobi-card:nth-child(2) .hobi-emoji { animation-delay: 0.4s; }
+  .hobi-card:nth-child(3) .hobi-emoji { animation-delay: 0.8s; }
+  .hobi-card:nth-child(4) .hobi-emoji { animation-delay: 1.2s; }
+
+  @keyframes hobbySpin {
+    0%, 100% { transform: rotate(-8deg) scale(1); }
+    50% { transform: rotate(8deg) scale(1.15); }
+  }
+
+  .hobi-name {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.05rem;
+    color: var(--pink5);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .hobi-desc {
+    font-size: 0.79rem;
+    color: var(--text);
+    font-weight: 600;
+    opacity: 0.85;
+  }
+
+  /* ===== SLIDE 3 - TERIMA KASIH ===== */
+  #slide3 { background: linear-gradient(135deg, #ffb3d9 0%, #ff9dd8 40%, #ff6eb4 100%); }
+
+  .thanks-container {
+    text-align: center;
+    animation: popIn 0.8s cubic-bezier(.17,.67,.4,1.4) both;
+  }
+
+  .thanks-girl {
+    width: 140px;
+    height: 170px;
+    animation: thanksWave 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(255,80,160,0.3));
+    margin-bottom: 16px;
+  }
+
+  @keyframes thanksWave {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-14px) rotate(3deg); }
+  }
+
+  .thanks-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.6rem;
+    color: #fff;
+    text-shadow: 3px 4px 0 rgba(200,40,100,0.25);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .thanks-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.92);
+    font-weight: 700;
+    margin-bottom: 22px;
+    letter-spacing: 1px;
+  }
+
+  .hearts-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    font-size: 2rem;
+    margin-bottom: 18px;
+  }
+
+  .heart-item {
+    animation: heartPop 1.2s ease-in-out infinite;
+  }
+
+  .heart-item:nth-child(1) { animation-delay: 0s; }
+  .heart-item:nth-child(2) { animation-delay: 0.2s; }
+  .heart-item:nth-child(3) { animation-delay: 0.4s; }
+  .heart-item:nth-child(4) { animation-delay: 0.6s; }
+  .heart-item:nth-child(5) { animation-delay: 0.8s; }
+
+  @keyframes heartPop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.4) rotate(8deg); }
+  }
+
+  .thanks-box {
+    background: rgba(255,255,255,0.22);
+    border: 2.5px solid rgba(255,255,255,0.5);
+    border-radius: 28px;
+    padding: 22px 38px;
+    backdrop-filter: blur(10px);
+    max-width: 420px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(200,40,100,0.15);
+  }
+
+  .thanks-quote {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.35rem;
+    color: #fff;
+    line-height: 1.5;
+    text-shadow: 1px 1px 4px rgba(200,40,100,0.2);
+  }
+
+  .wulan-sign {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.6rem;
+    color: #fff;
+    margin-top: 14px;
+    text-shadow: 2px 2px 0 rgba(200,40,100,0.2);
+    animation: signGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes signGlow {
+    0%, 100% { text-shadow: 2px 2px 0 rgba(200,40,100,0.2), 0 0 10px rgba(255,255,255,0.2); }
+    50% { text-shadow: 2px 2px 0 rgba(200,40,100,0.2), 0 0 28px rgba(255,255,255,0.7); }
+  }
+
+  /* ===== NAVIGATION ===== */
+  .nav-dots {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 100;
+  }
+
+  .dot {
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: rgba(255,110,180,0.35);
+    border: 2px solid rgba(255,80,160,0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .dot.active {
+    background: var(--pink5);
+    border-color: var(--pink5);
+    transform: scale(1.4);
+    box-shadow: 0 0 12px rgba(255,80,160,0.5);
+  }
+
+  .nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+    border: 2.5px solid rgba(255,110,180,0.5);
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.25s;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(255,80,160,0.15);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .nav-btn:hover {
+    background: var(--pink2);
+    transform: translateY(-50%) scale(1.12);
+    border-color: var(--pink5);
+  }
+
+  .nav-prev { left: 18px; }
+  .nav-next { right: 18px; }
+
+  .slide-counter {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-family: 'Pacifico', cursive;
+    font-size: 0.85rem;
+    color: var(--pink5);
+    background: rgba(255,255,255,0.65);
+    padding: 6px 14px;
+    border-radius: 20px;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(255,140,200,0.4);
+  }
+
+  /* Confetti animation for slide 3 */
+  .confetti-piece {
+    position: fixed;
+    width: 10px; height: 10px;
+    top: -20px;
+    opacity: 0;
+    border-radius: 2px;
+    animation: confettiFall linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes confettiFall {
+    0%   { opacity: 0; transform: translateY(-20px) rotate(0deg); }
+    10%  { opacity: 1; }
+    90%  { opacity: 0.8; }
+    100% { opacity: 0; transform: translateY(110vh) rotate(720deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating decorations -->
+<div class="floaties" id="floaties"></div>
+
+<!-- SLIDE 1 - PROFIL -->
+<div class="slides-wrapper">
+  <div class="slide active" id="slide1">
+    <div class="profile-card">
+      <div class="flower-badge">🌸</div>
+      <div class="girl-container">
+        <!-- Sparkle ring -->
+        <svg class="sparkle-ring" viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+          <text x="80" y="14" font-size="18" text-anchor="middle">✨</text>
+          <text x="156" y="70" font-size="14" text-anchor="middle">🌸</text>
+          <text x="148" y="148" font-size="18" text-anchor="middle">⭐</text>
+          <text x="28" y="158" font-size="14" text-anchor="middle">🌺</text>
+          <text x="8" y="68" font-size="18" text-anchor="middle">💫</text>
+        </svg>
+
+        <!-- Cute Cartoon Girl SVG -->
+        <svg class="girl-svg" viewBox="0 0 130 160" xmlns="http://www.w3.org/2000/svg">
+          <!-- Shadow -->
+          <ellipse cx="65" cy="155" rx="28" ry="5" fill="rgba(255,100,170,0.18)"/>
+          <!-- Body / Dress -->
+          <ellipse cx="65" cy="120" rx="30" ry="34" fill="#ff85c2"/>
+          <path d="M38 105 Q35 138 40 152 Q65 158 90 152 Q95 138 92 105 Z" fill="#ff6eb4"/>
+          <!-- Dress floral detail -->
+          <circle cx="57" cy="130" r="5" fill="#ffb3d9" opacity="0.7"/>
+          <circle cx="73" cy="122" r="4" fill="#ffb3d9" opacity="0.6"/>
+          <circle cx="63" cy="143" r="4.5" fill="#ffb3d9" opacity="0.55"/>
+          <!-- Arms -->
+          <ellipse cx="36" cy="110" rx="8" ry="18" fill="#ffc8a0" transform="rotate(-15 36 110)"/>
+          <ellipse cx="94" cy="110" rx="8" ry="18" fill="#ffc8a0" transform="rotate(15 94 110)"/>
+          <!-- Hand wave right -->
+          <circle cx="100" cy="100" r="7" fill="#ffc8a0"/>
+          <ellipse cx="103" cy="93" rx="3" ry="5" fill="#ffc8a0" transform="rotate(-20 103 93)"/>
+          <ellipse cx="107" cy="94" rx="2.5" ry="4.5" fill="#ffc8a0" transform="rotate(-5 107 94)"/>
+          <ellipse cx="110" cy="97" rx="2.5" ry="4" fill="#ffc8a0" transform="rotate(10 110 97)"/>
+          <!-- Legs -->
+          <rect x="50" y="148" width="14" height="10" rx="6" fill="#ff85c2"/>
+          <rect x="66" y="148" width="14" height="10" rx="6" fill="#ff85c2"/>
+          <!-- Shoes -->
+          <ellipse cx="57" cy="159" rx="9" ry="5" fill="#ff4fa0"/>
+          <ellipse cx="73" cy="159" rx="9" ry="5" fill="#ff4fa0"/>
+          <!-- Neck -->
+          <rect x="59" y="79" width="12" height="12" rx="4" fill="#ffc8a0"/>
+          <!-- Head -->
+          <ellipse cx="65" cy="62" rx="32" ry="34" fill="#ffd6b0"/>
+          <!-- Hair back -->
+          <ellipse cx="65" cy="48" rx="33" ry="26" fill="#b85c8c"/>
+          <!-- Hair bangs -->
+          <ellipse cx="65" cy="36" rx="31" ry="14" fill="#d47aaa"/>
+          <path d="M34 42 Q36 28 48 26 Q42 36 40 50 Z" fill="#b85c8c"/>
+          <path d="M96 42 Q94 28 82 26 Q88 36 90 50 Z" fill="#b85c8c"/>
+          <!-- Hair side strands -->
+          <path d="M33 55 Q26 68 30 85" stroke="#b85c8c" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M97 55 Q104 68 100 85" stroke="#b85c8c" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <!-- Cute hair bow -->
+          <ellipse cx="45" cy="34" rx="10" ry="6" fill="#ff4fa0" transform="rotate(-20 45 34)"/>
+          <ellipse cx="58" cy="29" rx="10" ry="6" fill="#ff4fa0" transform="rotate(20 58 29)"/>
+          <circle cx="51" cy="32" r="5" fill="#ff85c2"/>
+          <!-- Ears -->
+          <circle cx="33" cy="64" r="7" fill="#ffc8a0"/>
+          <circle cx="97" cy="64" r="7" fill="#ffc8a0"/>
+          <circle cx="33" cy="64" r="4" fill="#ffb3a0"/>
+          <circle cx="97" cy="64" r="4" fill="#ffb3a0"/>
+          <!-- Blush -->
+          <ellipse cx="46" cy="72" rx="9" ry="5" fill="rgba(255,140,180,0.5)"/>
+          <ellipse cx="84" cy="72" rx="9" ry="5" fill="rgba(255,140,180,0.5)"/>
+          <!-- Eyes -->
+          <ellipse cx="54" cy="64" rx="7" ry="8" fill="white"/>
+          <ellipse cx="76" cy="64" rx="7" ry="8" fill="white"/>
+          <ellipse cx="55" cy="65" rx="4.5" ry="5.5" fill="#4a2060"/>
+          <ellipse cx="77" cy="65" rx="4.5" ry="5.5" fill="#4a2060"/>
+          <circle cx="56" cy="63" r="1.8" fill="white"/>
+          <circle cx="78" cy="63" r="1.8" fill="white"/>
+          <!-- Eyelashes -->
+          <path d="M48 58 Q50 55 52 57" stroke="#4a2060" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M57 56 Q59 53 61 56" stroke="#4a2060" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M70 56 Q72 53 74 56" stroke="#4a2060" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M79 57 Q82 55 83 58" stroke="#4a2060" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Nose -->
+          <ellipse cx="65" cy="74" rx="3" ry="2" fill="rgba(200,100,140,0.3)"/>
+          <!-- Smile -->
+          <path d="M56 80 Q65 88 74 80" stroke="#cc5088" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Cute teeth -->
+          <rect x="60" y="81" width="10" height="5" rx="2" fill="white"/>
+        </svg>
+      </div>
+
+      <h1>✿ Wulan Nathasya A ✿</h1>
+      <span class="star-deco">🌸 ⭐ 🌸 ⭐ 🌸</span>
+
+      <div class="info-row">
+        <span class="info-icon">📚</span>
+        <div>
+          <div class="info-label">Kelas</div>
+          <div class="info-value">X PPLG C</div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <span class="info-icon">🎂</span>
+        <div>
+          <div class="info-label">Tempat, Tanggal Lahir</div>
+          <div class="info-value">Bandung, 09 Juli 2009</div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <span class="info-icon">🌸</span>
+        <div>
+          <div class="info-label">Sekolah</div>
+          <div class="info-value">SMK Negeri — Jurusan PPLG</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 - HOBI -->
+  <div class="slide" id="slide2">
+    <div class="hobi-container">
+      <div class="hobi-title">🌺 Hobi Aku 🌺</div>
+      <div class="hobi-subtitle">✨ Hal-hal yang aku suka lakukan ✨</div>
+      <div class="hobi-grid">
+        <div class="hobi-card">
+          <span class="hobi-emoji">🍳</span>
+          <span class="hobi-name">Memasak</span>
+          <span class="hobi-desc">Suka eksperimen resep baru yang enak & kreatif di dapur 🍰</span>
+        </div>
+        <div class="hobi-card">
+          <span class="hobi-emoji">📖</span>
+          <span class="hobi-name">Membaca</span>
+          <span class="hobi-desc">Petualangan seru dimulai dari setiap halaman buku 🌟</span>
+        </div>
+        <div class="hobi-card">
+          <span class="hobi-emoji">🎨</span>
+          <span class="hobi-name">Menggambar</span>
+          <span class="hobi-desc">Menuangkan imajinasi lewat warna dan goresan pena ✏️</span>
+        </div>
+        <div class="hobi-card">
+          <span class="hobi-emoji">💻</span>
+          <span class="hobi-name">Projek Coding</span>
+          <span class="hobi-desc">Bikin website & aplikasi kece pakai HTML, CSS & JavaScript 🚀</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 - TERIMA KASIH -->
+  <div class="slide" id="slide3">
+    <!-- Confetti will be added by JS -->
+    <!-- Cute girl waving -->
+    <div class="thanks-container">
+      <svg class="thanks-girl" viewBox="0 0 130 160" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="65" cy="155" rx="28" ry="5" fill="rgba(255,100,170,0.18)"/>
+        <ellipse cx="65" cy="120" rx="30" ry="34" fill="white" opacity="0.6"/>
+        <path d="M38 105 Q35 138 40 152 Q65 158 90 152 Q95 138 92 105 Z" fill="rgba(255,255,255,0.5)"/>
+        <circle cx="57" cy="128" r="5" fill="rgba(255,160,210,0.5)"/>
+        <circle cx="73" cy="120" r="4" fill="rgba(255,160,210,0.4)"/>
+        <!-- Arms — right waving up -->
+        <ellipse cx="36" cy="110" rx="8" ry="18" fill="#ffc8a0" transform="rotate(-15 36 110)"/>
+        <ellipse cx="100" cy="94" rx="8" ry="18" fill="#ffc8a0" transform="rotate(-50 100 94)"/>
+        <circle cx="110" cy="80" r="8" fill="#ffc8a0"/>
+        <!-- Legs -->
+        <rect x="50" y="148" width="14" height="10" rx="6" fill="rgba(255,110,180,0.7)"/>
+        <rect x="66" y="148" width="14" height="10" rx="6" fill="rgba(255,110,180,0.7)"/>
+        <ellipse cx="57" cy="159" rx="9" ry="5" fill="rgba(255,80,160,0.8)"/>
+        <ellipse cx="73" cy="159" rx="9" ry="5" fill="rgba(255,80,160,0.8)"/>
+        <rect x="59" y="79" width="12" height="12" rx="4" fill="#ffc8a0"/>
+        <ellipse cx="65" cy="62" rx="32" ry="34" fill="#ffd6b0"/>
+        <ellipse cx="65" cy="48" rx="33" ry="26" fill="#ff6eb4"/>
+        <ellipse cx="65" cy="36" rx="31" ry="14" fill="#ff85c2"/>
+        <path d="M34 42 Q36 28 48 26 Q42 36 40 50 Z" fill="#ff6eb4"/>
+        <path d="M96 42 Q94 28 82 26 Q88 36 90 50 Z" fill="#ff6eb4"/>
+        <path d="M33 55 Q26 68 30 85" stroke="#ff6eb4" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M97 55 Q104 68 100 85" stroke="#ff6eb4" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <ellipse cx="45" cy="34" rx="10" ry="6" fill="white" transform="rotate(-20 45 34)" opacity="0.8"/>
+        <ellipse cx="58" cy="29" rx="10" ry="6" fill="white" transform="rotate(20 58 29)" opacity="0.8"/>
+        <circle cx="51" cy="32" r="5" fill="rgba(255,255,255,0.6)"/>
+        <circle cx="33" cy="64" r="7" fill="#ffc8a0"/>
+        <circle cx="97" cy="64" r="7" fill="#ffc8a0"/>
+        <ellipse cx="46" cy="72" rx="9" ry="5" fill="rgba(255,140,180,0.5)"/>
+        <ellipse cx="84" cy="72" rx="9" ry="5" fill="rgba(255,140,180,0.5)"/>
+        <ellipse cx="54" cy="64" rx="7" ry="8" fill="white"/>
+        <ellipse cx="76" cy="64" rx="7" ry="8" fill="white"/>
+        <ellipse cx="55" cy="65" rx="4.5" ry="5.5" fill="#4a2060"/>
+        <ellipse cx="77" cy="65" rx="4.5" ry="5.5" fill="#4a2060"/>
+        <circle cx="56" cy="63" r="1.8" fill="white"/>
+        <circle cx="78" cy="63" r="1.8" fill="white"/>
+        <path d="M56 80 Q65 88 74 80" stroke="#cc5088" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <rect x="60" y="81" width="10" height="5" rx="2" fill="white"/>
+        <!-- Wave text bubble -->
+        <text x="98" y="68" font-size="20" text-anchor="middle">👋</text>
+      </svg>
+
+      <div class="thanks-title">Terima Kasih! 💝</div>
+      <div class="thanks-sub">✨ Sudah Berkunjung ke Website Ku ✨</div>
+
+      <div class="hearts-row">
+        <span class="heart-item">🌸</span>
+        <span class="heart-item">💕</span>
+        <span class="heart-item">🌺</span>
+        <span class="heart-item">💖</span>
+        <span class="heart-item">🌸</span>
+      </div>
+
+      <div class="thanks-box">
+        <p class="thanks-quote">
+          "Terima kasih telah meluangkan waktu untuk datang ke website aku~<br>
+          Semoga harimu menyenangkan dan penuh kebahagiaan! 🌷"
+        </p>
+        <div class="wulan-sign">~ Wulan Nathasya A ~</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<button class="nav-btn nav-prev" id="prevBtn">◀</button>
+<button class="nav-btn nav-next" id="nextBtn">▶</button>
+
+<div class="nav-dots">
+  <div class="dot active" data-idx="0"></div>
+  <div class="dot" data-idx="1"></div>
+  <div class="dot" data-idx="2"></div>
+</div>
+
+<div class="slide-counter" id="counter">1 / 3 🌸</div>
+
+<script>
+  // ===== FLOATING PARTICLES =====
+  const icons = ['🌸','🌺','💮','🌼','🌷','✿','❀','💕','💖','⭐','✨','💫','🦋','🎀','🍀'];
+  const floatiesEl = document.getElementById('floaties');
+  for (let i = 0; i < 28; i++) {
+    const f = document.createElement('div');
+    f.className = 'floaty';
+    f.textContent = icons[Math.floor(Math.random() * icons.length)];
+    f.style.left = Math.random() * 100 + 'vw';
+    f.style.animationDuration = (7 + Math.random() * 10) + 's';
+    f.style.animationDelay = (Math.random() * 10) + 's';
+    f.style.fontSize = (1 + Math.random() * 1.2) + 'rem';
+    floatiesEl.appendChild(f);
+  }
+
+  // ===== CONFETTI =====
+  function createConfetti() {
+    const colors = ['#ff85c2','#ff6eb4','#ffb3d9','#ff4fa0','#ffd6ec','#fff','#ffda79'];
+    for (let i = 0; i < 40; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti-piece';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.width = (6 + Math.random() * 8) + 'px';
+      c.style.height = (6 + Math.random() * 8) + 'px';
+      c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      c.style.animationDuration = (4 + Math.random() * 5) + 's';
+      c.style.animationDelay = (Math.random() * 4) + 's';
+      c.style.zIndex = 0;
+      document.body.appendChild(c);
+      c.dataset.confetti = '1';
+    }
+  }
+
+  function removeConfetti() {
+    document.querySelectorAll('[data-confetti]').forEach(e => e.remove());
+  }
+
+  // ===== SLIDE LOGIC =====
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  const counter = document.getElementById('counter');
+  let current = 0;
+  let isAnimating = false;
+
+  function goToSlide(idx) {
+    if (isAnimating || idx === current) return;
+    isAnimating = true;
+
+    const prev = current;
+    current = idx;
+
+    // Remove confetti if leaving slide 3
+    if (prev === 2) removeConfetti();
+
+    // Exit old slide
+    slides[prev].classList.remove('active');
+    slides[prev].classList.add('exit-left');
+    setTimeout(() => {
+      slides[prev].classList.remove('exit-left');
+    }, 700);
+
+    // Enter new slide
+    slides[current].classList.add('active');
+
+    // Update dots
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+
+    // Update counter
+    const labels = ['1 / 3 🌸','2 / 3 🌺','3 / 3 💖'];
+    counter.textContent = labels[current];
+
+    // Confetti on slide 3
+    if (current === 2) setTimeout(createConfetti, 400);
+
+    setTimeout(() => { isAnimating = false; }, 750);
+  }
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    if (current < slides.length - 1) goToSlide(current + 1);
+  });
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    if (current > 0) goToSlide(current - 1);
+  });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => goToSlide(+dot.dataset.idx));
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' && current < slides.length - 1) goToSlide(current + 1);
+    if (e.key === 'ArrowLeft' && current > 0) goToSlide(current - 1);
+  });
+
+  // Touch swipe
+  let touchStartX = 0;
+  document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0 && current < slides.length - 1) goToSlide(current + 1);
+      if (dx > 0 && current > 0) goToSlide(current - 1);
+    }
+  });
+</script>
+</body>
+</html>
